@@ -15,8 +15,11 @@ void setup() {
   pixels.begin();
 }
 
+
 void loop() {
   if(digitalRead(PIN1) == 1) {
+    
+    if(digitalRead(PIN1) == 1)
     if(digitalRead(PIN1) == 1) {
       if(digitalRead(PIN1) == 1) {
     
