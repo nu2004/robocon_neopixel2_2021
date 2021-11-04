@@ -19,19 +19,16 @@ void setup() {
 void loop() {
   if(digitalRead(PIN1) == 1) {
     
-    if(digitalRead(PIN1) == 1)
-    if(digitalRead(PIN1) == 1) {
+    if(digitalRead(PIN1) == 1){
+    
       if(digitalRead(PIN1) == 1) {
-    
-      } else {
-      
-      }
-    } else {
-      
-    }
-  } else {
-    
-  }
+        
+        if(digitalRead(PIN1) == 1) {
+
+        }else{
+          
+        }
+
   
   
 
