@@ -4,9 +4,11 @@
 #define PIN         
 #define PIN1        2
 #define PIN2        3
+
 #define PIN3        4
 
 Adafruit_NeoPixel pixels(LED_COUNT, PIN, NEO_GRB + NEO_KHZ800);
+
 int step_num = 0;
 int delta = 1;
 
@@ -18,6 +20,7 @@ void setup() {
 
 
 void loop() {
+  
   pixels.clear;
   if(digitalRead(PIN1) == 1) {
     if(digitalRead(PIN2) == 1){   
@@ -29,6 +32,7 @@ void loop() {
     }else{   
       if(digitalRead(PIN3) == 1) {
       pixels.setPixelColor(0,pixels.Color(30,0,0)); 
+
       }else{
       pixels.setPixelColor(0,pixels.Color(30,0,0)); 
       }
