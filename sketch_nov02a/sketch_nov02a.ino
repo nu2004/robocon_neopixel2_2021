@@ -14,9 +14,9 @@ int delta = 1;
 
 void setup() {
   pixels.begin();
-  pinMode(PIN1, INPUT_PULLUP);
-  pinMode(PIN2, INPUT_PULLUP);
-  pinMode(PIN3, INPUT_PULLUP);
+  pinMode(PIN1, INPUT);
+  pinMode(PIN2, INPUT);
+  pinMode(PIN3, INPUT);
 }
 
 
@@ -27,41 +27,43 @@ void loop() {
       if(digitalRead(PIN3) == 1) {
         
       for(int i=0; i<pixels.numPixels(); i++) {
-        pixels.setPixelColor(0,pixels.Color(0,0,100));
+        pixels.setPixelColor(i,pixels.Color(0,100,0));
       }     
       }else{
       for(int i=0; i<pixels.numPixels(); i++) {
-        pixels.setPixelColor(0,pixels.Color(0,0,100));
+        pixels.setPixelColor(i,pixels.Color(0,100,0));
       }
-      
+      }
     }else{   
       if(digitalRead(PIN3) == 1) {
       for(int i=0; i<pixels.numPixels(); i++) {
-        pixels.setPixelColor(0,pixels.Color(0,0,100));
+        pixels.setPixelColor(i,pixels.Color(0,100,0));
       }     
       }else{        
       for(int i=0; i<pixels.numPixels(); i++) {
-        pixels.setPixelColor(0,pixels.Color(0,0,100));
+        pixels.setPixelColor(i,pixels.Color(0,100,0));
+      }
       }
     }
   }else{
     if(digitalRead(PIN2) == 1){
       if(digitalRead(PIN3) == 1) {
       for(int i=0; i<pixels.numPixels(); i++) {
-        pixels.setPixelColor(0,pixels.Color(100,0,0));
+        pixels.setPixelColor(i,pixels.Color(100,0,0));
       }     
       }else{
       for(int i=0; i<pixels.numPixels(); i++) {
-        pixels.setPixelColor(0,pixels.Color(100,0,0));
+        pixels.setPixelColor(i,pixels.Color(100,0,0));
+      }
       }
     }else{    
       if(digitalRead(PIN3) == 1) {
       for(int i=0; i<pixels.numPixels(); i++) {
-        pixels.setPixelColor(0,pixels.Color(100,0,0));
+        pixels.setPixelColor(i,pixels.Color(100,0,0));
       }
       }else{
       for(int i=0; i<pixels.numPixels(); i++) {
-        pixels.setPixelColor(0,pixels.Color(100,0,0));
+        pixels.setPixelColor(i,pixels.Color(100,0,0));
       }
       }
     }
