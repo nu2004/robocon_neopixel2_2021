@@ -1,10 +1,10 @@
 #include <Adafruit_NeoPixel.h>
 
 #define LED_COUNT 5
-#define PIN 1
-#define PIN1 2
-#define PIN2 3
-#define PIN3 4
+#define PIN 2
+#define PIN1 3
+#define PIN2 4
+#define PIN3 5
 
 Adafruit_NeoPixel pixels(LED_COUNT, PIN, NEO_GRB + NEO_KHZ800);
 
@@ -18,7 +18,6 @@ void setup() {
   pinMode(PIN2, INPUT);
   pinMode(PIN3, INPUT);
 }
-
 
 void loop() {
   pixels.clear();
