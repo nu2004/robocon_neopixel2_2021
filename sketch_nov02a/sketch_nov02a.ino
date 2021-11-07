@@ -5,6 +5,7 @@
 #define PIN1 3
 #define PIN2 4
 #define PIN3 5
+#define Switch 12
 
 Adafruit_NeoPixel pixels(LED_COUNT, PIN, NEO_GRB + NEO_KHZ800);
 
@@ -17,55 +18,57 @@ void setup() {
   pinMode(PIN1, INPUT);
   pinMode(PIN2, INPUT);
   pinMode(PIN3, INPUT);
+  pinMode(Switch, INPUT_PULLUP);
 }
 
 void loop() {
   pixels.clear();
-  if(digitalRead(PIN1) == 1) {
-    if(digitalRead(PIN2) == 1){
-      if(digitalRead(PIN3) == 1) {
-        
-      for(int i=0; i<pixels.numPixels(); i++) {
-        pixels.setPixelColor(i,pixels.Color(0,100,0));
-      }     
-      }else{
-      for(int i=0; i<pixels.numPixels(); i++) {
-        pixels.setPixelColor(i,pixels.Color(0,100,0));
+  if(digitalRead(Switch) == 1){
+    if(digitalRead(PIN1) == 1) {
+      if(digitalRead(PIN2) == 1){
+        if(digitalRead(PIN3) == 1) {
+          
+        for(int i=0; i<pixels.numPixels(); i++) {
+          pixels.setPixelColor(i,pixels.Color(0,100,0));
+        }     
+        }else{
+        for(int i=0; i<pixels.numPixels(); i++) {
+          pixels.setPixelColor(i,pixels.Color(0,100,0));
+        }
+        }
+      }else{   
+        if(digitalRead(PIN3) == 1) {
+        for(int i=0; i<pixels.numPixels(); i++) {
+          pixels.setPixelColor(i,pixels.Color(0,100,0));
+        }     
+        }else{        
+        for(int i=0; i<pixels.numPixels(); i++) {
+          pixels.setPixelColor(i,pixels.Color(0,100,0));
+        }
+        }
       }
-      }
-    }else{   
-      if(digitalRead(PIN3) == 1) {
-      for(int i=0; i<pixels.numPixels(); i++) {
-        pixels.setPixelColor(i,pixels.Color(0,100,0));
-      }     
-      }else{        
-      for(int i=0; i<pixels.numPixels(); i++) {
-        pixels.setPixelColor(i,pixels.Color(0,100,0));
-      }
+    }else{
+      if(digitalRead(PIN2) == 1){
+        if(digitalRead(PIN3) == 1) {
+        for(int i=0; i<pixels.numPixels(); i++) {
+          pixels.setPixelColor(i,pixels.Color(100,0,0));
+        }     
+        }else{
+        for(int i=0; i<pixels.numPixels(); i++) {
+          pixels.setPixelColor(i,pixels.Color(100,0,0));
+        }
+        }
+      }else{    
+        if(digitalRead(PIN3) == 1) {
+        for(int i=0; i<pixels.numPixels(); i++) {
+          pixels.setPixelColor(i,pixels.Color(100,0,0));
+        }
+        }else{
+        for(int i=0; i<pixels.numPixels(); i++) {
+          pixels.setPixelColor(i,pixels.Color(100,0,0));
+        }
+        }
       }
     }
-  }else{
-    if(digitalRead(PIN2) == 1){
-      if(digitalRead(PIN3) == 1) {
-      for(int i=0; i<pixels.numPixels(); i++) {
-        pixels.setPixelColor(i,pixels.Color(100,0,0));
-      }     
-      }else{
-      for(int i=0; i<pixels.numPixels(); i++) {
-        pixels.setPixelColor(i,pixels.Color(100,0,0));
-      }
-      }
-    }else{    
-      if(digitalRead(PIN3) == 1) {
-      for(int i=0; i<pixels.numPixels(); i++) {
-        pixels.setPixelColor(i,pixels.Color(100,0,0));
-      }
-      }else{
-      for(int i=0; i<pixels.numPixels(); i++) {
-        pixels.setPixelColor(i,pixels.Color(100,0,0));
-      }
-      }
-    }
-  }
-  pixels.show();
+    pixels.show();
 }
