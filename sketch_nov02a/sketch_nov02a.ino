@@ -58,6 +58,7 @@ void loop() {
           pixels.setPixelColor(i,pixels.Color(100,0,0));
         }
         }
+        
       }else{    
         if(digitalRead(PIN3) == 1) {
         for(int i=0; i<pixels.numPixels(); i++) {
@@ -71,4 +72,7 @@ void loop() {
       }
     }
     pixels.show();
+  }else{
+    
+  }
 }
