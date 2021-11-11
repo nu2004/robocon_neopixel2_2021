@@ -58,18 +58,32 @@ void loop() {
     }else{
       if(digitalRead(PIN2) == 1){
         if(digitalRead(PIN3) == 1) {
-        //0b011  
+          for(int i=0; i<pixels.numPixels(); i++) {
+            pixels.setPixelColor(i,pixels.Color(0,255,0));
+          }
         }else{
-        //0b010
+          for(int i=0; i<pixels.numPixels(); i++) {
+            pixels.setPixelColor(i,pixels.Color(255,0,0));
+          } 
         }
         
       }else{    
         if(digitalRead(PIN3) == 1) {
-        for(int i=0; i<pixels.numPixels(); i++) {
-          pixels.setPixelColor(i,pixels.Color(0,255,0));
-        } 
+          for(int i=0; i<pixels.numPixels(); i++) {
+            pixels.setPixelColor(i,pixels.Color(0,255,0));
+          } 
         }else{
-        //0b000
+          for(int i=0; i<pixels.numPixels(); i++) {
+            pixels.setPixelColor(i,pixels.Color(255,0,0));
+          }   
+          pixels.show();
+          delay(100);
+          pixels.clear();
+          for(int i=0; i<pixels.numPixels(); i++) {
+            pixels.setPixelColor(i,pixels.Color(255,0,0));
+          } 
+          pixels.show();
+          delay(100);
         }
       }
     }
