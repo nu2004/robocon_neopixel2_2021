@@ -28,13 +28,29 @@ void loop() {
         if(digitalRead(PIN3) == 1) {
           
         for(int i=0; i<pixels.numPixels(); i++) {
-        //0b111
+          for(int i=0; i<pixels.numPixels()-450; i++) {
+            int pixelHue = step_num + (i * 65536L / pixels.numPixels());
+          pixels.setPixelColor(i, pixels.gamma32(pixels.ColorHSV(pixelHue)));
+          }
+
         }else{
-        //0b110
+          for(int i=0; i<pixels.numPixels(); i++) {
+            pixels.setPixelColor(i,pixels.Color(255,255,0));
+          }   
+          pixels.show();
+          delay(100);
+          pixels.clear();
+          for(int i=0; i<pixels.numPixels(); i++) {
+            pixels.setPixelColor(i,pixels.Color(255,255,0));
+          } 
+    pixels.show();
+    delay(100);
         }
       }else{   
         if(digitalRead(PIN3) == 1) {
-        //0b101 
+          for(int i=0; i<pixels.numPixels(); i++) {
+            pixels.setPixelColor(i,pixels.Color(255,255,255));
+          } 
         }else{        
         //0b100
         }
@@ -49,7 +65,9 @@ void loop() {
         
       }else{    
         if(digitalRead(PIN3) == 1) {
-        //0b001
+        for(int i=0; i<pixels.numPixels(); i++) {
+          pixels.setPixelColor(i,pixels.Color(0,255,0));
+        } 
         }else{
         //0b000
         }
