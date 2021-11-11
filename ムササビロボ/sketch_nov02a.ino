@@ -30,7 +30,7 @@ void loop() {
         for(int i=0; i<pixels.numPixels(); i++) {
         //0b111
         }else{
-        //0b110
+        //0b111
         }
       }else{   
         if(digitalRead(PIN3) == 1) {
@@ -57,6 +57,5 @@ void loop() {
     }
     pixels.show();
   }else{
-    
   }
 }
