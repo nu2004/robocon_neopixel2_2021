@@ -68,26 +68,26 @@
         pixels.setPixelColor(i,pixels.Color(255,0,0));
     }   
     pixels.show();
-    delay(100);
+    delay(1000);
     pixels.clear();
     for(int i=0; i<pixels.numPixels(); i++) {
         pixels.setPixelColor(i,pixels.Color(255,0,0));
     } 
     pixels.show();
-    delay(100);
+    delay(1000);
 
     //0b001
     for(int i=0; i<pixels.numPixels(); i++) {
         pixels.setPixelColor(i,pixels.Color(0,255,0));
     }   
     pixels.show();
-    delay(100);
+    delay(1000);
     pixels.clear();
     for(int i=0; i<pixels.numPixels(); i++) {
         pixels.setPixelColor(i,pixels.Color(0,255,0));
     }
     pixels.show();
-    delay(100);
+    delay(1000);
 
     //0b010
     for(int i=0; i<pixels.numPixels(); i++) {
@@ -127,4 +127,6 @@
 
 //ムササビロボット
     //0b001
+    
+    
     
