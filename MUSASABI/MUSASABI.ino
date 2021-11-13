@@ -1,6 +1,6 @@
 #include <Adafruit_NeoPixel.h>
 
-#define LED_COUNT 5
+#define LED_COUNT 300
 #define PIN 2
 #define PIN1 3
 #define PIN2 4
@@ -22,62 +22,85 @@ void setup() {
 
 void loop() {
   pixels.clear();
-  if(digitalRead(Switch) == 1){
-    if(digitalRead(PIN1) == 1) {
-      if(digitalRead(PIN2) == 1){
-        if(digitalRead(PIN3) == 1) {
-          
-        for(int i=0; i<pixels.numPixels(); i++) {
-        //0b111
-        }else{
-        //0b111
-        }
-      }else{   
-        if(digitalRead(PIN3) == 1) {
-        //0b101 
-        }else{        
-        //0b100
-        }
+  pixels.show();
+  int SW = digitalRead(Switch);
+  int PIN_A = digitalRead(PIN1);
+  int PIN_B = digitalRead(PIN2);
+  int PIN_C = digitalRead(PIN3);
+
+  if(SW = 1){
+    if((PIN_A == 0) && (PIN_B == 0) && (PIN_C == 0)){
+
+      //0b000
+      for(int i=0; i<pixels.numPixels(); i++) {
+        pixels.setPixelColor(i,pixels.Color(255,0,0));
+      }   
+      pixels.show();
+      delay(1000);
+      pixels.clear();
+      pixels.show();
+      delay(1000);
+
+    }else if((PIN_A == 0) && (PIN_B == 0) && (PIN_C == 1)){
+
+      //0b001
+      for(int i=0; i<pixels.numPixels(); i++) {
+        pixels.setPixelColor(i,pixels.Color(0,255,0));
+      }   
+      pixels.show();
+      delay(1000);
+      pixels.clear();
+      pixels.show();
+      delay(1000);
+
+    }else if((PIN_A == 0) && (PIN_B == 1) && (PIN_C == 0)){
+      //0b010
+      for(int i=0; i<pixels.numPixels(); i++) {
+        pixels.setPixelColor(i,pixels.Color(255,128,0));
+      }   
+      pixels.show();
+      delay(1000);
+      pixels.clear();
+      pixels.show();
+      delay(1000);
+
+    }else if((PIN_A == 0) && (PIN_B == 1) && (PIN_C == 1)){
+      //0b011
+    }else if((PIN_A == 1) && (PIN_B == 0) && (PIN_C == 0)){
+      //0b100
+    }else if((PIN_A == 1) && (PIN_B == 0) && (PIN_C == 1)){
+
+      //0b101
+      for(int i=0; i<pixels.numPixels(); i++) {
+        pixels.setPixelColor(i,pixels.Color(255,255,255));
       }
-    }else{
-      if(digitalRead(PIN2) == 1){
-        if(digitalRead(PIN3) == 1) {
-        //0b011  
-        }else{
-        //0b010
-        }
-        
-      }else{    
-        if(digitalRead(PIN3) == 1) {
-        //0b001
-        for(int i=0; i<pixels.numPixels(); i++) {
-          pixels.setPixelColor(i,pixels.Color(0,255,0));
-        }   
-        pixels.show();
-        delay(100);
-        pixels.clear();
-        for(int i=0; i<pixels.numPixels(); i++) {
-          pixels.setPixelColor(i,pixels.Color(0,255,0));
-        }
-        pixels.show();
-        delay(100);
-        }
-        }else{
-        //0b000
-        for(int i=0; i<pixels.numPixels(); i++) {
-          pixels.setPixelColor(i,pixels.Color(255,0,0));
-        }   
-        pixels.show();
-        delay(100);
-        pixels.clear();
-        for(int i=0; i<pixels.numPixels(); i++) {
-          pixels.setPixelColor(i,pixels.Color(255,0,0));
-        } 
-        pixels.show();
-        delay(100);
-        }
+      pixels.show();
+
+    }else if((PIN_A == 1) && (PIN_B == 1) && (PIN_C == 0)){
+      
+      //0b110
+      for(int i=0; i<pixels.numPixels(); i++) {
+        pixels.setPixelColor(i,pixels.Color(255,255,0));
+      }   
+      pixels.show();
+      delay(1000);
+      pixels.clear();
+      pixels.show();
+      delay(1000);
+
+    }else if((PIN_A == 1) && (PIN_B == 1) && (PIN_C == 1)){
+      
+      //0b111
+      for(int i=0; i<LED_COUNT; i++) {
+        int pixelHue = step_num + (i * 65536L / LED_COUNT);
+        pixels.setPixelColor(i, pixels.gamma32(pixels.ColorHSV(pixelHue)));
       }
+      pixels.show();
+      step_num += 800;
+      if (step_num == 80000) {
+        step_num = 0;
+      }  
+
     }
-    pixels.show();
+
   }
-}
