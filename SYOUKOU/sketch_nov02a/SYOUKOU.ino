@@ -45,7 +45,7 @@ void loop() {
 
       //0b001
       for(int i=0; i<pixels.numPixels(); i++) {
-        pixels.setPixelColor(i,pixels.Color(255,50,0));
+        pixels.setPixelColor(i,pixels.Color(255,128,0));
       }   
       pixels.show();
       delay(1000);
@@ -79,6 +79,7 @@ void loop() {
       for(int i=0; i<pixels.numPixels(); i++) {
         pixels.setPixelColor(i,pixels.Color(255,255,255));
       }
+      pixels.show();
       
     }else if((PIN_A == 1) && (PIN_B == 1) && (PIN_C == 0)){
       //0b110
@@ -92,11 +93,18 @@ void loop() {
       delay(1000);
 
     }else if((PIN_A == 1) && (PIN_B == 1) && (PIN_C == 1)){
+
       //0b111
-      for(int i=0; i<pixels.numPixels()-450; i++) {
-        int pixelHue = step_num + (i * 65536L / pixels.numPixels());
+      for(int i=0; i<LED_COUNT; i++) {
+        int pixelHue = step_num + (i * 65536L / LED_COUNT);
         pixels.setPixelColor(i, pixels.gamma32(pixels.ColorHSV(pixelHue)));
       }
+      pixels.show();
+      step_num += 800;
+      if (step_num == 80000) {
+        step_num = 0;
+      }  
+      
     }
 
   }else {
