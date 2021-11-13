@@ -29,21 +29,21 @@ void loop() {
   int PIN_C = digitalRead(PIN3);
 
   if(SW = 1){
-    if((PIN_A = 0) && (PIN_B = 0) && (PIN_C = 0)){
+    if((PIN_A == 0) && (PIN_B == 0) && (PIN_C == 0)){
       //0b000
-    }else if((PIN_A = 0) && (PIN_B = 0) && (PIN_C = 1)){
+    }else if((PIN_A == 0) && (PIN_B == 0) && (PIN_C == 1)){
       //0b001
-    }else if((PIN_A = 0) && (PIN_B = 1) && (PIN_C = 0)){
+    }else if((PIN_A == 0) && (PIN_B == 1) && (PIN_C == 0)){
       //0b010
-    }else if((PIN_A = 0) && (PIN_B = 1) && (PIN_C = 1)){
+    }else if((PIN_A == 0) && (PIN_B == 1) && (PIN_C == 1)){
       //0b011
-    }else if((PIN_A = 1) && (PIN_B = 0) && (PIN_C = 0)){
+    }else if((PIN_A == 1) && (PIN_B == 0) && (PIN_C == 0)){
       //0b100
-    }else if((PIN_A = 1) && (PIN_B = 0) && (PIN_C = 1)){
+    }else if((PIN_A == 1) && (PIN_B == 0) && (PIN_C == 1)){
       //0b101
-    }else if((PIN_A = 1) && (PIN_B = 1) && (PIN_C = 0)){
+    }else if((PIN_A == 1) && (PIN_B == 1) && (PIN_C == 0)){
       //0b110
-    }else if((PIN_A = 1) && (PIN_B = 1) && (PIN_C = 1)){
+    }else if((PIN_A == 1) && (PIN_B == 1) && (PIN_C == 1)){
       //0b111
     }
 
