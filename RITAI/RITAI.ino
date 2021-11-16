@@ -1,6 +1,6 @@
 #include <Adafruit_NeoPixel.h>
 
-#define LED_COUNT 300
+#define LED_COUNT 144
 #define PIN 2
 #define PIN1 3
 #define PIN2 4
@@ -71,6 +71,10 @@ void loop() {
 
     }else if((PIN_A == 1) && (PIN_B == 0) && (PIN_C == 0)){
       //0b100
+      for(int i=0; i<pixels.numPixels(); i++) {
+        pixels.setPixelColor(i,pixels.Color(0,0,255));
+      }
+      pixels.show();
     }else if((PIN_A == 1) && (PIN_B == 0) && (PIN_C == 1)){
 
       //0b101
@@ -107,3 +111,4 @@ void loop() {
     }
 
   }
+}
